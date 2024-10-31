@@ -15,7 +15,7 @@ def upload_image(request: HttpRequest) -> HttpResponse:
     return render(request, 'upload_image.html', {'form': form})
 
 
-def list_images(request):
+def list_images(request: HttpRequest) -> HttpResponse:
     images = Image.objects.all()
     return render(request, 'list_images.html', {'images': images})
 
