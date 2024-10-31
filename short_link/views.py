@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from django.http import HttpRequest, HttpResponse
 from .forms import UrlForm
 from .models import Url
@@ -9,7 +10,7 @@ def create_url(request: HttpRequest) -> HttpResponse:
         form = UrlForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('url_list')
+        return redirect('url_list')
     else:
         form = UrlForm()
     return render(request, 'urls/create_url.html', {'form': form})
