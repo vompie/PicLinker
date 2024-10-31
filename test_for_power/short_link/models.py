@@ -10,8 +10,11 @@ class AbstractTimestamp(models.Model):
 
 
 class Url(AbstractTimestamp):
-    url = models.URLField()
+    url = models.CharField(max_length=200)
     short_url = models.CharField(max_length=5, unique=True, default=get_random_string(length=5))
 
     def __str__(self):
         return self.url
+    
+    def full_url(self):
+        return f"https://{self.url}"

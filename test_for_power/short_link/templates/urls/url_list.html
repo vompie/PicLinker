@@ -20,7 +20,7 @@
                         <a href="{{ url.url }}" target="_blank">{{ url.url }}</a>
                     </td>
                     <td>
-                        <a href="{{ request.build_absolute_uri }}s/{{ url.short_url }}" target="_blank">{{ request.build_absolute_uri }}s/{{ url.short_url }}</a>
+                        <a href="{{ request.scheme }}://{{ request.get_host }}/s/{{ url.short_url }}" target="_blank">{{ request.scheme }}://{{ request.get_host }}/s/{{ url.short_url }}</a>
                     </td>
                 </tr>
                 {% endfor %}
