@@ -1,0 +1,16 @@
+{% extends "template.html" %}
+
+{% block title %}Загрузить изображение{% endblock %}
+
+{% block content %}
+<h1>Загрузить изображение</h1>
+<div class="card">
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Загрузить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>{% block title %}Тестовое для СилаСвета{% endblock %}</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{{ request.scheme }}://{{ request.get_host }}">Тестовое для СилаСвета</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'create_url' %}">Сократить ссылку</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'url_list' %}">Список ссылок</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'upload_image' %}">Загрузить картинку</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_images' %}">Список картинок</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container mt-4 content">
+            {% block content %}{% endblock %}
+        </div>
+
+        <footer>
+            <div class="text-center">
+                © 2024 Тестовое для СилаСвета <a class="link" href="https://github.com/vompie">Vompie</a>
+            </div>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

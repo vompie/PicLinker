@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+
+{% block title %}Список изображений{% endblock %}
+
+{% block content %}
+<h1>Список изображений</h1>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            {% for image in images %}
+                <div class="col-md-6 mb-4"> 
+                    <div class="card">
+                        <a href="{% url 'view_image' image.id %}">
+                            <img src="{{ image.image.url }}" class="card-img-top" alt="Image {{ image.id }}"> 
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Дата загрузки: {{ image.created_at }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:2 %}</div><div class="row">{% endif %} 
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
